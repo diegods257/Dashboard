@@ -2,6 +2,7 @@ import os
 
 from deta import Deta  # pip install deta
 from dotenv import load_dotenv  # pip install python-dotenv
+import streamlit as st
 
 
 # Load the environment variables
@@ -9,7 +10,7 @@ load_dotenv("/.streamlit/secrets.toml")
 DETA_KEY = os.getenv("data_key")
 
 # Initialize with a project key
-deta = Deta(DETA_KEY)
+deta = Deta(st.secrets["data_key"])
 
 # This is how to create/connect a database
 db = deta.Base("streamabc")
